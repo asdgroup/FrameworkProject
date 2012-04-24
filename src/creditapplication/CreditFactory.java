@@ -1,22 +1,10 @@
 package creditapplication;
 
-import bankframework.account.AccountType;
-import bankframework.account.IAccount;
-import bankframework.customer.CompanyCustomer;
-import bankframework.customer.CustomerType;
-import bankframework.customer.ICustomer;
-import bankframework.customer.PersonalCustomer;
-import bankframework.system.ASystemFactory;
-
 public class CreditFactory extends ASystemFactory {
 
-	@Override
-	public IAccount createAccount(String[] accountInfo) {
-		if (accountInfo[0].equals(AccountType.SAVING)) {
-			return new CreditAccount(accountInfo[1]);
-		} else {
-			return new CreditAccount(accountInfo[1]);
-		}
+	public IAccount createAccount(String accountNumber) {
+		return new CreditAccount(accountNumber);
+
 	}
 
 	@Override
@@ -29,5 +17,4 @@ public class CreditFactory extends ASystemFactory {
 					customerInfo[3], customerInfo[4], customerInfo[5]);
 		}
 	}
-
 }
