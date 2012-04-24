@@ -13,7 +13,6 @@ public class Bank {
 		ISystemService bankService = new BankService();
 		bankFacade.setSysFactory(bankFactory);
 		bankFacade.setSysService(bankService);
-//		ISystemGUI asg = new BankGUI("Bank Application", null, bankFacade);		
 		new BankGUI("Bank Application", null, bankFacade);
 	}
 

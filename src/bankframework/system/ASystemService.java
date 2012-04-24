@@ -6,7 +6,7 @@ import java.util.List;
 import bankframework.account.IAccount;
 import bankframework.customer.ICustomer;
 
-public class ASystemService implements ISystemService {
+public abstract class ASystemService implements ISystemService {
 	protected List<ICustomer> customers;
 	protected List<IAccount> accounts;
 
@@ -69,9 +69,8 @@ public class ASystemService implements ISystemService {
 	@Override
 	public void addInterest(double interest) {
 		for (IAccount a : accounts) {
-			a.deposit(interest);
+			a.addInterest(interest);
 		}
-
 	}
 
 	@Override

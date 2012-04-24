@@ -53,8 +53,7 @@ public class AAccount extends Observable implements IAccount {
 		if((transactionLimit>0.0)&&(amount>=transactionLimit)){
 			setChanged();
 			notify();
-		}
-		
+		}	
 	}
 	
 	public double getTransactionLimit() {

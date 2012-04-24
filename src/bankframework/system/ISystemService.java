@@ -11,6 +11,5 @@ public interface ISystemService {
 //	void addCustomer(ICustomer customer);
 	void addAccount(ICustomer customer, IAccount account);
 //	void addAccount(IAccount account);
-	
 	ICustomer getCustomer(String name);
 }

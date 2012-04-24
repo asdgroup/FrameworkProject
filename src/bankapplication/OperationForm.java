@@ -10,7 +10,7 @@ import bankframework.gui.ASystemGUI;
 public class OperationForm extends ASystemGUI{
 	private static final long serialVersionUID = 1L;
 
-	String accnr;
+	private String accnr;
 	
 	private JLabel JLabel1 = new JLabel();
 	private JLabel JLabel2 = new JLabel();

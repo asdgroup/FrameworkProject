@@ -2,7 +2,6 @@ package bankapplication;
 
 import bankframework.gui.ISystemGUI;
 
-
 public class GUIFactory { 
 	
 	public static ISystemGUI getBankGUI(String type, BankGUI gui, String anncr){

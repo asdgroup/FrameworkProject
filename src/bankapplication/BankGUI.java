@@ -26,8 +26,6 @@ public class BankGUI extends ASystemGUI implements IBankGUIViewFunctor {
 	private int selection; // temporary use
 	private String accnr; // temporary use
 
-	// GUIFactory gf = new GUIFactory();
-
 	JPanel JPanel1 = new JPanel();
 	JButton JButton_PerAC = new JButton();
 	JButton JButton_CompAC = new JButton();
@@ -157,8 +155,6 @@ public class BankGUI extends ASystemGUI implements IBankGUIViewFunctor {
 		}
 		String[] customerInfo = new String[] { customerType, customerName,
 				street, city, state, zip };
-		// CustomerInfo ci = new
-		// CustomerInfo(customerType,customerName,street,city,state,zip,null,null,0);
 		ICustomer customer = bankFacade.createCustomer(customerInfo);
 		String[] accountInfo = new String[] { accountType, accountnr };
 		IAccount account = bankFacade.createAccount(accountInfo);
@@ -186,18 +182,13 @@ public class BankGUI extends ASystemGUI implements IBankGUIViewFunctor {
 			accnr = (String) model.getValueAt(selection, 0);
 			ISystemGUI isg = GUIFactory.getBankGUI("withdraw", this, accnr);
 			isg.setVisible(true);
-
-//			long deposit = Long.parseLong(amountDeposit);
-//			String samount = (String) model.getValueAt(selection, 5);
-//			long currentamount = Long.parseLong(samount);
-
 		}
 	}
 
 	public void operation(String title) {
 		double deposit = Double.parseDouble(amountDeposit);
 		String samount = (String) model.getValueAt(selection, 5);
-		long currentamount = Long.parseLong(samount);
+		double currentamount = Double.parseDouble(samount);
 		if (title.equals("Deposite")) {
 			double newamount = currentamount + deposit;
 			model.setValueAt(String.valueOf(newamount), selection, 5);

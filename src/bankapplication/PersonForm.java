@@ -1,7 +1,5 @@
 package bankapplication;
 
-
-
 import java.awt.event.ActionEvent;
 
 import javax.swing.JLabel;
@@ -9,7 +7,6 @@ import javax.swing.JTextField;
 
 import bankframework.account.AccountType;
 import bankframework.customer.CustomerType;
-
 
 public class PersonForm extends CreateAccountForm {
 
