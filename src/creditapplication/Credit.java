@@ -1,14 +1,5 @@
 package creditapplication;
 
-import javax.swing.UIManager;
-
-import bankapplication.BankFactory;
-import bankapplication.BankGUI;
-import bankapplication.BankService;
-import bankframework.system.ISystemFactory;
-import bankframework.system.ISystemService;
-import bankframework.system.SystemFacade;
-
 public class Credit {
 	/*****************************************************
 	 * The entry point for this application. Sets the Look and Feel to the
@@ -17,23 +8,11 @@ public class Credit {
 
 	static public void main(String[] args) {
 		SystemFacade creditFacade = new SystemFacade();
-		ISystemFactory creditFactory = new BankFactory();
-		ISystemService bankService = new BankService();
+		ISystemFactory creditFactory = new CreditFactory();
+		ISystemService creditService = new CreditService();
 		creditFacade.setSysFactory(creditFactory);
-		creditFacade.setSysService(bankService);
+		creditFacade.setSysService(creditService);
 		// ISystemGUI asg = new BankGUI("Bank Application", null, bankFacade);
-		new BankGUI("Bank Application", null, creditFacade);
-		try {
-			try {
-				UIManager.setLookAndFeel(UIManager
-						.getSystemLookAndFeelClassName());
-			} catch (Exception e) {
-			}
-
-			(new CreditGUI()).setVisible(true);
-		} catch (Throwable t) {
-			t.printStackTrace();
-			System.exit(1);
-		}
+		new CreditGUI();
 	}
 }
