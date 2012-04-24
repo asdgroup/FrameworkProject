@@ -94,7 +94,7 @@ public class CreditGUI extends ASystemGUI {
 		setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		setSize(575, 310);
-		setVisible(false);
+		setVisible(true);
 		JPanel1.setLayout(null);
 		getContentPane().add(BorderLayout.CENTER, JPanel1);
 		JPanel1.setBounds(0, 0, 575, 310);

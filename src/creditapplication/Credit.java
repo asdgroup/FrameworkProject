@@ -12,7 +12,6 @@ public class Credit {
 		ISystemService creditService = new CreditService();
 		creditFacade.setSysFactory(creditFactory);
 		creditFacade.setSysService(creditService);
-		// ISystemGUI asg = new BankGUI("Bank Application", null, bankFacade);
 		new CreditGUI();
 	}
 }
