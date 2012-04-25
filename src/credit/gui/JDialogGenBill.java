@@ -1,8 +1,7 @@
-package credit;
+package credit.gui;
 
 import java.awt.event.ActionEvent;
 
-import credit.gui.ASystemSubForm;
 
 public class JDialogGenBill extends ASystemSubForm {
 	private String datas;

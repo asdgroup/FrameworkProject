@@ -1,8 +1,7 @@
-package credit;
+package credit.gui;
 
 import java.awt.event.ActionEvent;
 
-import credit.gui.CreditGUI;
 import framework.gui.AOperationForm;
 
 public class WithdrawalForm extends AOperationForm {

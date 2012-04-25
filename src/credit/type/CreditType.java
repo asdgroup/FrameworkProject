@@ -1,6 +1,6 @@
-package credit;
+package credit.type;
 
-public interface CreditcardType {
+public interface CreditType {
 	double getMonthlyPaymentRate();
 	double getMonthlyInterestRate();
 }

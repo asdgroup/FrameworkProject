@@ -2,9 +2,7 @@ package credit.gui;
 
 import javax.swing.JDialog;
 
-import credit.JDialogGenBill;
 import credit.JDialog_AddCCAccount;
-import credit.WithdrawalForm;
 import credit.gui.CreditGUI;
 import credit.gui.DepositForm;
 import framework.gui.ISystemGUIFactory;

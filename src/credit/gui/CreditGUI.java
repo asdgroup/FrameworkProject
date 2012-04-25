@@ -7,12 +7,19 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import framework.account.IAccount;
+import framework.customer.ICustomer;
+import framework.system.SystemFacade;
+
 public class CreditGUI extends ASystemMainForm {
 
-	public CreditGUI() {
+	private SystemFacade creditFacade;
+
+	public CreditGUI(SystemFacade creditFacade) {
 		setTitle("Credit Card Processing application");
 		render();
 		setVisible(true);
+		this.creditFacade = creditFacade;
 	}
 
 	public String clientName;
@@ -143,8 +150,29 @@ public class CreditGUI extends ASystemMainForm {
 		}
 	}
 
+	public void fillData() {
+		if (newaccount) {
+			// add row to table
+			rowdata[0] = clientName;
+			rowdata[1] = ccnumber;
+			rowdata[2] = expdate;
+			rowdata[3] = accountType;
+			rowdata[4] = "0";
+			model.addRow(rowdata);
+
+			JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
+			newaccount = false;
+		}
+		String[] customerInfo = new String[] { accountType, clientName, street,
+				city, state, zip };
+		ICustomer customer = creditFacade.createCustomer(customerInfo);
+		String[] accountInfo = new String[] { accountType, ccnumber };
+		IAccount account = creditFacade.createAccount(accountInfo);
+		creditFacade.addAccount(customer, account);
+	}
+
 	void JButtonGenerateBill_actionPerformed(java.awt.event.ActionEvent event) {
-		factory.getBankSubForm("generatebills", "dddfadf");
+		factory.getBankSubForm("generatebills", creditFacade.generaterReports());
 	}
 
 	void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event) {
