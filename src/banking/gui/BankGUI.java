@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import framework.account.IAccount;
 import framework.customer.ICustomer;
 import framework.gui.ASystemMainForm;
-import framework.system.SystemFacade;
+import framework.system.FinancialCompany;
 
 
 public class BankGUI extends ASystemMainForm {
@@ -37,11 +37,11 @@ public class BankGUI extends ASystemMainForm {
 	JButton JButton_Exit = new JButton("Exit");
 	JButton JButton_Reports = new JButton("Report");
 	
-	private SystemFacade bankFacade;
+	private FinancialCompany bankFacade;
 	private int selection; // temporary use
 	private String accnr; // temporary use
 
-	public BankGUI(SystemFacade bankFacade) {
+	public BankGUI(FinancialCompany bankFacade) {
 		super();
 		setTitle("Bank Application");
 		render();

@@ -11,7 +11,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import framework.gui.ASystemMainForm;
-import framework.system.SystemFacade;
+import framework.system.FinancialCompany;
 
 public class CreditGUI extends ASystemMainForm {
 	private static final long serialVersionUID = 1L;
@@ -33,8 +33,8 @@ public class CreditGUI extends ASystemMainForm {
 	JButton JButton_Withdraw = new JButton();
 	JButton JButton_Exit = new JButton();
 	
-	private SystemFacade creditFacade;
-	public CreditGUI(SystemFacade creditFacade) {
+	private FinancialCompany creditFacade;
+	public CreditGUI(FinancialCompany creditFacade) {
 		setTitle("Credit Card Processing application");
 		render();
 		setVisible(true);

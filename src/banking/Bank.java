@@ -4,19 +4,19 @@ import banking.factory.BankFactory;
 import banking.gui.BankGUI;
 import framework.system.ISystemFactory;
 import framework.system.ISystemService;
-import framework.system.SystemFacade;
+import framework.system.FinancialCompany;
 import framework.system.SystemService;
 
 public class Bank {
 
 	public static void main(String[] args) {
 
-		SystemFacade bankFacade = new SystemFacade();
+		FinancialCompany bank = new FinancialCompany();
 		ISystemFactory bankFactory = new BankFactory();
 		ISystemService bankService = new SystemService();
-		bankFacade.setSysFactory(bankFactory);
-		bankFacade.setSysService(bankService);
-		new BankGUI(bankFacade);
+		bank.setSysFactory(bankFactory);
+		bank.setSysService(bankService);
+		new BankGUI(bank);
 	}
 
 }
