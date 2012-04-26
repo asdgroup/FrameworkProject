@@ -10,13 +10,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import framework.account.IAccount;
+import framework.customer.ICustomer;
 import framework.gui.ASystemMainForm;
 import framework.system.FinancialCompany;
 
 public class CreditGUI extends ASystemMainForm {
 	private static final long serialVersionUID = 1L;
-	protected String clientName, street, city, zip, state, accountType, amountDeposit,
-			expdate, ccnumber;
+	protected String clientName, street, city, zip, state, accountType,
+			amountDeposit, expdate, ccnumber;
 	boolean newaccount;
 	private DefaultTableModel model;
 	private JTable JTable1;
@@ -32,13 +34,14 @@ public class CreditGUI extends ASystemMainForm {
 	JButton JButton_Deposit = new JButton();
 	JButton JButton_Withdraw = new JButton();
 	JButton JButton_Exit = new JButton();
-	
-	private FinancialCompany creditFacade;
+
+	private FinancialCompany financialCompanyFacade;
+
 	public CreditGUI(FinancialCompany creditFacade) {
 		setTitle("Credit Card Processing application");
 		render();
 		setVisible(true);
-		this.creditFacade = creditFacade;
+		this.financialCompanyFacade = creditFacade;
 	}
 
 	@Override
@@ -140,6 +143,13 @@ public class CreditGUI extends ASystemMainForm {
 			JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
 			newaccount = false;
 		}
+		String[] customerInfo = new String[] { accountType, clientName, street,
+				city, state, zip };
+		ICustomer customer = financialCompanyFacade
+				.createCustomer(customerInfo);
+		String[] accountInfo = new String[] { accountType, ccnumber };
+		IAccount account = financialCompanyFacade.createAccount(accountInfo);
+		financialCompanyFacade.addAccount(customer, account);
 	}
 
 	void JButtonGenerateBill_actionPerformed(java.awt.event.ActionEvent event) {

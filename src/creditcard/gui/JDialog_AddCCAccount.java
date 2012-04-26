@@ -187,6 +187,7 @@ public class JDialog_AddCCAccount extends ASystemSubForm {
 		}
 
 		parentframe.newaccount = true;
+
 		dispose();
 	}
 
