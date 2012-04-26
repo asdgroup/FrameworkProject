@@ -171,6 +171,7 @@ public class CreditGUI extends ASystemMainForm {
 			long currentamount = Long.parseLong(samount);
 			long newamount = currentamount + deposit;
 			model.setValueAt(String.valueOf(newamount), selection, 4);
+			financialCompanyFacade.deposite(ccnumber, deposit);
 		}
 	}
 
@@ -187,7 +188,6 @@ public class CreditGUI extends ASystemMainForm {
 			String samount = (String) model.getValueAt(selection, 4);
 			long currentamount = Long.parseLong(samount);
 			long newamount = currentamount - deposit;
-			model.setValueAt(String.valueOf(newamount), selection, 4);
 			if (newamount < 0) {
 				JOptionPane.showMessageDialog(
 						JButton_Withdraw,
@@ -195,7 +195,10 @@ public class CreditGUI extends ASystemMainForm {
 								+ String.valueOf(newamount) + " !",
 						"Warning: negative balance",
 						JOptionPane.WARNING_MESSAGE);
+				return;
 			}
+			model.setValueAt(String.valueOf(newamount), selection, 4);
+			financialCompanyFacade.withdrawal(ccnumber, deposit);
 		}
 	}
 }
