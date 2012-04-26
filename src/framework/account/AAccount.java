@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Observable;
 
-public class AAccount extends Observable implements IAccount {
+public abstract class AAccount extends Observable implements IAccount {
 	
 	protected List<IEntry> entries;
 	protected double balance;
@@ -28,8 +28,8 @@ public class AAccount extends Observable implements IAccount {
 	@Override
 	public boolean deposit(double amount) {
 		balance += amount;
-		checkAmount(amount);
 		addEntry(new Entry(amount,"Deposit",new Date()));
+		checkAmount(amount);
 		return true;
 	}
 
@@ -52,7 +52,7 @@ public class AAccount extends Observable implements IAccount {
 	protected void checkAmount(double amount){
 		if((transactionLimit>0.0)&&(amount>=transactionLimit)){
 			setChanged();
-			notify();
+			notifyObservers();
 		}	
 	}
 	

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
+import framework.account.AAccount;
 import framework.account.IAccount;
 
 public abstract class ACustomer implements ICustomer{
@@ -33,14 +34,17 @@ public abstract class ACustomer implements ICustomer{
 	@Override
 	public void update(Observable o, Object arg){
 		if(o instanceof IAccount){
-			System.out.println("send email to custmer");
+			System.out.println("send email to custmer: "+name);
 		}
 	}
 
 	@Override
 	public void addAccount(IAccount account) {
-		accounts.add(account);
+		AAccount aac = (AAccount)account;
+		aac.addObserver(this);
+		accounts.add(aac);
 	}
+
 
 	@Override
 	public void removeAccount() {

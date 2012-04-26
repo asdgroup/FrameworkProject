@@ -88,7 +88,6 @@ public class SystemService implements ISystemService {
 		if(account!=null){
 			account.deposit(amount);
 		}
-
 	}
 
 	private IAccount getAccount(String accountNumber) {
@@ -101,7 +100,5 @@ public class SystemService implements ISystemService {
 		}
 		return null;
 	}
-
-	
 
 }
