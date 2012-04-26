@@ -153,7 +153,8 @@ public class CreditGUI extends ASystemMainForm {
 	}
 
 	void JButtonGenerateBill_actionPerformed(java.awt.event.ActionEvent event) {
-		factory.getBankSubForm("generatebills", "dddfadf");
+		factory.getBankSubForm("generatebills",
+				financialCompanyFacade.generaterReports());
 	}
 
 	void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event) {
